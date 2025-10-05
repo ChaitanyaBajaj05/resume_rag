@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
-import upload from "./pages/upload";
+import Upload from "./pages/upload";
 import Search from "./pages/search";
 import Jobs from "./pages/Jobs";
 import Candidate from "./pages/Candidate";
@@ -16,7 +16,7 @@ export default function App() {
   useEffect(() => {
     // Redirect to login if not authenticated
     if (!isLoggedIn) {
-      navigate("/login");
+      navigate("/Login");
     }
   }, [isLoggedIn, navigate]);
 
@@ -36,7 +36,7 @@ export default function App() {
         <Routes>
           {/* Auth routes */}
           <Route
-            path="/login"
+            path="/Login"
             element={
               isLoggedIn ? (
                 <Navigate to="/upload" replace />
@@ -51,7 +51,7 @@ export default function App() {
               isLoggedIn ? (
                 <Navigate to="/upload" replace />
               ) : (
-                <Signup onSignupSuccess={() => navigate("/login")} />
+                <Signup onSignupSuccess={() => navigate("/Login")} />
               )
             }
           />
@@ -59,25 +59,25 @@ export default function App() {
           {/* Protected routes */}
           <Route
             path="/upload"
-            element={isLoggedIn ? <Upload /> : <Navigate to="/login" replace />}
+            element={isLoggedIn ? <Upload /> : <Navigate to="/Login" replace />}
           />
           <Route
             path="/search"
-            element={isLoggedIn ? <Search /> : <Navigate to="/login" replace />}
+            element={isLoggedIn ? <Search /> : <Navigate to="/Login" replace />}
           />
           <Route
             path="/jobs"
-            element={isLoggedIn ? <Jobs /> : <Navigate to="/login" replace />}
+            element={isLoggedIn ? <Jobs /> : <Navigate to="/Login" replace />}
           />
           <Route
             path="/candidates/:id"
-            element={isLoggedIn ? <Candidate /> : <Navigate to="/login" replace />}
+            element={isLoggedIn ? <Candidate /> : <Navigate to="/Login" replace />}
           />
 
           {/* Default route */}
           <Route
             path="/"
-            element={<Navigate to={isLoggedIn ? "/upload" : "/login"} replace />}
+            element={<Navigate to={isLoggedIn ? "/upload" : "/Login"} replace />}
           />
 
           {/* Fallback for unknown routes */}
