@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
-import Upload from "./pages/Upload";
+import Upload from "./pages/upload";
 import Search from "./pages/search";
 import Jobs from "./pages/Jobs";
 import Candidate from "./pages/Candidate";
