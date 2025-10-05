@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 // Upload function calls backend API at dynamic URL
 async function uploadResume(file) {
-  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
   const formData = new FormData();
   formData.append("file", file);
 
