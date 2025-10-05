@@ -1,5 +1,17 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/.*\\.(js|css|png|jpg|jpeg|svg|ico|json|woff2?|pdf)$", "dest": "/$0" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
