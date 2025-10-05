@@ -133,7 +133,7 @@ export default function Signup({ onSignupSuccess }) {
             Already have an account?{" "}
             <span
               className="text-blue-700 font-medium cursor-pointer hover:underline"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/login")}
             >
               Login
             </span>
