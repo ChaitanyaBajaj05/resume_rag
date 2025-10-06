@@ -40,7 +40,8 @@ export default function Upload() {
       toast.success("File uploaded successfully.");
       setFile(null);
     } catch (err) {
-      toast.error("Failed to upload. Please try again.");
+      console.error("Upload error:", err);
+      toast.error(err.message || "Failed to upload. Please try again.");
     }
     setLoading(false);
   };
