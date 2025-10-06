@@ -1,22 +1,6 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-
-// Upload function calls backend API at dynamic URL
-async function uploadResume(file) {
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
-  const formData = new FormData();
-  formData.append("file", file);
-
-  const response = await fetch(`${API_BASE_URL}/resumes/upload/`, {
-    method: "POST",
-    body: formData,
-  });
-
-  if (!response.ok) {
-    throw new Error("Upload failed");
-  }
-  return response.json();
-}
+import { uploadResume } from "../api";
 
 export default function Upload() {
   const [file, setFile] = useState(null);
